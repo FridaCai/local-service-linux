@@ -1,0 +1,53 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.0"
+  title: "RFQ_unittest"
+host: "localhost:8003"
+basePath: "/v1"
+schemes:
+- "http"
+produces:
+- "application/json"
+
+paths:
+  /ping:
+    get:
+      tags:
+      - "Ping"
+      description: "check the web service still alive"
+      operationId: "pingGet"
+      responses:
+        200:
+          description: "Successful response"
+      x-swagger-router-controller: "Ping"
+
+  /upload:
+    post:
+      tags:
+        - "Upload"
+      description: "upload"
+      operationId: "upload"
+      parameters:
+
+
+      - name: uuid
+        in: formData
+        description: "uuid"
+        required: false
+        type: "string"
+      - name: "log"
+        in: formData
+        description: "upload log"
+        required: false
+        type: "file"
+      - name: "report"
+        in: formData
+        description: "upload report"
+        required: false
+        type: "file"
+
+      responses:
+        200:
+          description: "Successful response"
+      x-swagger-router-controller: "Upload"
